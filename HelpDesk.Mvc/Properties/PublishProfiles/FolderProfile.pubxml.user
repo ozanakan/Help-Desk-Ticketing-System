@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\massive\Desktop\HelpDesk</_PublishTargetUrl>
+    <History>True|2022-06-02T14:23:35.2083615Z;True|2022-06-02T12:42:58.2111127+03:00;True|2022-06-02T11:14:32.0539021+03:00;True|2022-06-01T13:54:09.5161530+03:00;True|2022-06-01T13:37:56.2783822+03:00;True|2022-06-01T13:34:26.2007735+03:00;True|2022-06-01T12:18:50.8855349+03:00;</History>
+  </PropertyGroup>
+</Project>

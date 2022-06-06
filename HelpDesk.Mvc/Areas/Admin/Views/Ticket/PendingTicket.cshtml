@@ -1,0 +1,71 @@
+﻿@model HelpDesk.Mvc.Areas.Admin.Models.TicketListViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "NewTicket Index";
+}
+
+
+
+<div id="modelPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4 mt-3">
+    @*<div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Kullanıcı Ekle
+        </div>*@
+    <div class="card-body">
+        <div class="spinner-border" role="status" style="display: none">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="companyTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Kullanıcı Adı</th>
+                        <th>Kullanıcı Email</th>
+                        <th>Problem Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Talep Tarihi</th>
+                        <th>Durum</th>
+                        <th>İlgili Admin</th>
+
+                        <th width="30%">Options</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Kullanıcı Adı</th>
+                        <th>Kullanıcı Email</th>
+                        <th>Problem Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Talep Tarihi</th>
+                        <th>Durum</th>
+                        <th>İlgili Admin</th>
+
+
+                        <th width="30%">Options</th>
+                    </tr>
+                </tfoot>
+          
+                <tbody>
+                    @foreach (var ticket in Model.TicketList.Data.Tickets)
+                    {
+                        <tr name="@ticket.TicketId">
+                            <td>@ticket.UserName</td>
+                            <td>@ticket.UserEmail</td>
+                            <td>@ticket.Title</td>
+                            <td>@ticket.Description</td>
+                            <td>@ticket.CreatedDate</td>
+                            <td>@ticket.StatusName</td>
+                            <td>@ticket.AdminName</td>
+                            <td>
+                                <button class="btn btn-info btn-sm btn-update" data-id="@ticket.TicketId"><span class="fas fa-edit"></span>Güncelle</button>
+                                <button class="btn btn-info btn-sm btn-warning" data-id="@ticket.TicketId"><span class="fas fa-edit"></span>Durum Değiştir</button>
+                                <button class="btn btn-danger btn-sm  btn-delete" data-id="@ticket.TicketId"><span class="fas fa-minus-circle"></span>Kayıt Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Data\HelpDesk.Data.csproj" />
+    <ProjectReference Include="..\HelpDesk.Entities\HelpDesk.Entities.csproj" />
+    <ProjectReference Include="..\HelpDesk.Shared\HelpDesk.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

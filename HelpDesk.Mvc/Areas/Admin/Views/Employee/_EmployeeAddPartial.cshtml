@@ -1,0 +1,55 @@
+﻿@*@model HelpDesk.Entities.Dtos.UserAddDto*@
+@model HelpDesk.Mvc.Areas.Admin.Models.UserListViewModel
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kullanıcı Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Add" id="form-employee-add">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                    <div class="form-group">
+                        <label asp-for="UserAddDto.Name"></label>
+                        <input class="form-control" asp-for="UserAddDto.Name" />
+                        <span class="text-danger" asp-validation-for="UserAddDto.Name"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UserAddDto.Email"></label>
+                        <input class="form-control" asp-for="UserAddDto.Email" />
+                        <span class="text-danger" asp-validation-for="UserAddDto.Email"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UserAddDto.Password"></label>
+                        <input class="form-control" asp-for="UserAddDto.Password" />
+                        <span class="text-danger" asp-validation-for="UserAddDto.Password"></span>
+                    </div>
+
+                    <div class="input-group-prepend">
+                        <select id="areaName" name="areaName ">
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model.CompanyList.Data.Companies)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-block" id="btnSave">Kaydet</button>
+                <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>

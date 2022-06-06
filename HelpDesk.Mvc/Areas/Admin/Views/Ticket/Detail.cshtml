@@ -1,0 +1,106 @@
+﻿@using HelpDesk.Entities.Concrete
+@using HelpDesk.Mvc.Areas.Admin.Models
+@model HelpDesk.Mvc.Areas.Employee.Models.TicketListModel
+@{
+    ViewData["Title"] = "TicketDetail Page";
+}
+@section Scripts
+{
+    <script src="~/js/ticketDetailAdmin.js" type="application/ecmascript"></script>
+}
+
+
+<div class="row" style="margin-top: 10px">
+    <div class="container">
+        <div class="col-md-12">
+
+            <div style="min-height: 700px; overflow-x: hidden; overflow-y: scroll;" class="modal-content">
+
+                <div class="chat-messages p-4 ">
+                    <div class="chat-message-right pb-4" style="background-color: aliceblue">
+
+                        @foreach (var ticket in Model.Tickets)
+                        {
+                            <div class="flex-shrink-1  rounded py-1 px-2">Ticket Id: @ticket.TicketId</div>
+                            <div class="flex-shrink-1  rounded  px-2 ">Başlık: @ticket.Title</div>
+                            <div class="flex-shrink-1  rounded  px-2 ">Açıklama: @Html.Raw(@ticket.Description)</div>
+                        }
+
+                    </div>
+                </div>
+                <tbody>
+                    @foreach (var ticket in Model.TicketAnswers)
+                    {
+                        <div class="chat-messages p-4">
+                            <div class="chat-message-right pb-4">
+                                <div>
+                                    <div class="text-muted small text-nowrap mt-2">@ticket.Name - @ticket.CreatedDate</div>
+                                </div>
+                                <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                                    @*<div class="font-weight-bold mb-1">@ticket.TicketId</div>*@
+                                    @Html.Raw(@ticket.Answer)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </tbody>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form asp-action="Add" id="form-ticketAnswer-add" enctype="multipart/form-data">
+                        <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                        <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+
+                        <div class="form-group">
+                            <textarea id="summernote" class="form-control answer"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" id="btnSave">Açıklama Ekle</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" crossorigin="anonymous"></script>
+<script>
+
+
+
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    $('#summernote').summernote({
+        placeholder: 'Talep içeriğini girebilirsiniz...',
+        tabsize: 2,
+        height: 150,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>

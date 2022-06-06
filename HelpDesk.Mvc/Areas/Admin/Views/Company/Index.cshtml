@@ -1,0 +1,55 @@
+﻿@using HelpDesk.Shared.Utilities.Results.ComplexTypes
+@model HelpDesk.Entities.Dtos.CompanyListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Company Index";
+}
+
+<div id="modelPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4 mt-3">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Şirket Ekle
+    </div>
+    <div class="card-body">
+        <div class="spinner-border" role="status" style="display: none">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="companyTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Şirket Adı</th>
+                        <th width="30%">Options</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Şirket Adı</th>
+                        <th width="30%">Options</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                @foreach (var company in Model.Companies)
+                {
+                    <tr name="@company.Id">
+                        <td>@company.Id</td>
+                        <td>@company.Name</td>
+                        <td> 
+                            <button class="btn btn-info btn-sm btn-update" data-id="@company.Id"><span class="fas fa-edit"></span>Güncelle</button>
+                            <button class="btn btn-danger btn-sm  btn-delete" data-id="@company.Id"><span class="fas fa-minus-circle"></span>Kayıt Sil</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/companyIndex.js" type="application/ecmascript"></script>
+}

@@ -1,0 +1,110 @@
+﻿@model HelpDesk.Entities.Dtos.UserDetailDto
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="text-success">ADMİN PANELİ</a>
+        <a asp-area="Employee" asp-controller="Home" asp-action="Index" class="text-success">KULLANICI PANELİ</a>
+        <a href="@Url.Action("Index","Home",new {Area="Admin"})">Go to Admin Area</a>
+        <a href="/Admin/Home/Index">Go to Admin Area</a>
+    </div>*@
+@section Scripts
+{
+    <script src="~/js/homeIndex.js" type="application/ecmascript"></script>
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .bg-img {
+            /* The image used */
+            background-image: url("https://media-exp1.licdn.com/dms/image/C560BAQFcs4EPphESMA/company-logo_200_200/0/1642428567116?e=2147483647&v=beta&t=6uayytdgNBEnTUIhbFXl5sDYDYy4y096OBWO9kcw70c");
+            margin-top: 40px;
+            margin-left: 50px;
+            min-height: 380px;
+            max-height: 400px;
+            max-width: 400px;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+
+
+
+</head>
+
+
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-img"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h3 text-gray-900 mb-4">Massive Process </h1>
+                                    </div>
+                                    <div class="text-center">
+                                        <h1 class="h5 text-gray-900 mb-2">Arıza Bildirme Sistemi</h1>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form method="post" id="form-ticket-add">
+                                            <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                                            <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                                            <div class="form-group">
+                                                @*<label asp-for="Email">email</label>*@
+                                                <input class="form-control form-control-user" asp-for="Email" placeholder="Email" />
+                                                <span class="text-danger" asp-validation-for="Email"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                @*<label asp-for="Password">Password</label>*@
+                                                <input class="form-control form-control-user" asp-for="Password" placeholder="Şifre" />
+                                                <span class="text-danger" asp-validation-for="Password"></span>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block" id="btnLogin">Giriş Yap</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
