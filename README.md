@@ -14,3 +14,8 @@ Of course, many ticketing systems also provide other functions including, but no
 
 You might also hear ticketing systems referred to as ticketing software, ticketing support, or a helpdesk ticketing system.
 
+![2022-06-06_11-38-32](https://user-images.githubusercontent.com/73120826/172142714-b2dc3f11-4416-4d73-a7fc-7fa76de7720b.png)
+![2022-06-06_11-36-28](https://user-images.githubusercontent.com/73120826/172142722-8e076a60-67f7-4613-8cb4-b00aaadb30de.png)
+![2022-06-06_11-34-52](https://user-images.githubusercontent.com/73120826/172142734-a9eea3c3-7891-4308-9458-7e21ff70cdbb.png)
+![2022-06-06_11-35-22](https://user-images.githubusercontent.com/73120826/172142744-8d059036-8138-406d-b697-b644d480e524.png)
+![2022-06-06_11-34-16](https://user-images.githubusercontent.com/73120826/172142748-be74e35a-0b0e-4f36-b0e9-946fa824d2fd.png)
